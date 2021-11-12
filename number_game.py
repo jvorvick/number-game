@@ -5,10 +5,11 @@ User will try to guess a number between 1 and 100, chosen by the computer.
 '''
 
 import random
-
+ 
 computer = random.randint(1, 100)
-correct = False
-while not correct:
+# correct = False
+
+while True:
     player = int(input('Choose a number between 1 and 100: '))
 
     if player < computer:
@@ -17,6 +18,8 @@ while not correct:
         message = f'Guess was too high. Try again.'
     else:
         message = f'You guessed the secret!'
-        correct = True
+        break
+        # correct = True
+    
 
     print(f"computer: {computer}, player: {player}, {message}")
