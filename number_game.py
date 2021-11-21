@@ -41,8 +41,9 @@ while True:
 
     # computer guesses, player piccks    
     else:
-        # get number from player
-        player = input('Enter a number between 1 and 100: ')
-        
 
+        # get number from player
+        player = int(input('Enter a number between 1 and 100: '))
+        
+        
         break
