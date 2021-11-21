@@ -9,25 +9,40 @@ import random
 # loop until player chooses not to play anymore
 while True:
 
-    computer = random.randint(1, 100)
-    correct = False
+    # choose guesser
+    guesser = input('Would you like to guess the number? Enter "y" for yourself or "n" for the computer: ').upper()
 
-# loop until player guesses correctly
-    while not correct:
-        player = int(input('Choose a number between 1 and 100: '))
+    # player guesses, computer picks
+    if guesser == 'Y':
+        # get random number from computer
+        computer = random.randint(1, 100)
+        correct = False
 
-        if player < computer:
-            message = f'Guess was too low. Try again.'
-        elif player > computer:
-            message = f'Guess was too high. Try again.'
-        else:
-            message = f'You guessed the secret!'
+    # loop until player guesses correctly
+        while not correct:
+            player = int(input('Choose a number between 1 and 100: '))
+
+            # compare guess to computer and print out appropriate message
+            if player < computer:
+                message = f'Guess was too low. Try again.'
+            elif player > computer:
+                message = f'Guess was too high. Try again.'
+            else:
+                message = f'You guessed the secret!'
+                
+                correct = True
             
-            correct = True
+            print(f"computer: {computer}, player: {player}, {message}")
         
-        print(f"computer: {computer}, player: {player}, {message}")
+        play_again = input('Would you like to play again? Enter "y" or "n": ').upper()
 
-    play_again = input('Would you like to play again? Enter "y" or "n": ')
+        if play_again != 'Y':
+            break
 
-    if play_again != 'y':
+    # computer guesses, player piccks    
+    else:
+        # get number from player
+        player = input('Enter a number between 1 and 100: ')
+        
+
         break
