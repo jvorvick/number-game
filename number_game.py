@@ -34,7 +34,7 @@ while True:
             
             print(f"computer: {computer}, player: {player}, {message}") 
 
-    # computer guesses, player piccks    
+    # computer guesses, player picks    
     else:
 
         # get number from player
@@ -45,18 +45,19 @@ while True:
         highest = 100
         
         # loop until computer guesses correctly
+        computer = random.randint(lowest, highest)
         correct = False
         while not correct:
-
-            computer = random.randint(lowest, highest)
 
             # compare guess to player. if incorrect, adjust range of guess
             if computer < player:
                 message = 'Guess was too low. Try again.'
                 lowest = computer + 1
+                computer = int((highest + lowest) / 2)
             elif computer > player:
                 message = 'Guess was too high. Try again.'
                 highest = computer - 1
+                computer = int((highest + lowest) / 2)
             else:
                 message = 'You guessed the secret!'
                 correct = True
