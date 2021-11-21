@@ -46,6 +46,7 @@ while True:
         
         # loop until computer guesses correctly
         computer = random.randint(lowest, highest)
+        print(computer)
         correct = False
         while not correct:
 
@@ -53,17 +54,18 @@ while True:
             if computer < player:
                 message = 'Guess was too low. Try again.'
                 lowest = computer + 1
-                computer = int((highest + lowest) / 2)
             elif computer > player:
                 message = 'Guess was too high. Try again.'
                 highest = computer - 1
-                computer = int((highest + lowest) / 2)
             else:
                 message = 'You guessed the secret!'
                 correct = True
 
             print(f'player: {player}, computer: {computer}, {message}')
             print(f'guess range: {lowest, highest}')
+
+            # place computer's next guess in the middle of the new range
+            computer = int((highest + lowest) / 2)
 
     play_again = input('Would you like to play again? Enter "y" or "n": ').upper()
 
