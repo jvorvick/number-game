@@ -6,6 +6,9 @@ Either the player or the computer will try to guess a number between 1 and 100, 
 
 import random
 
+def choose_guesser():
+    return input('Would you like to guess the number? Enter "y" for yourself or "n" for the computer: ').upper()
+
 # player guesses, computer picks
 def player_guesses():      
     # get random number from computer
@@ -59,18 +62,21 @@ def computer_guesses():
         # place computer's next guess in the middle of the new range
         computer = int((highest + lowest) / 2)
 
+def play_again():
+    return input('Would you like to play again? Enter "y" or "n": ').upper()
+
 # loop until player chooses not to play anymore
 while True:
 
     # choose guesser
-    guesser = input('Would you like to guess the number? Enter "y" for yourself or "n" for the computer: ').upper()
+    guesser = choose_guesser()
 
     if guesser == 'Y':
         player_guesses()
     else:
         computer_guesses()
 
-    play_again = input('Would you like to play again? Enter "y" or "n": ').upper()
+    play_again = play_again()
 
     if play_again != 'Y':
         print('Goodbye!')
