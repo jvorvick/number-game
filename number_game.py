@@ -76,8 +76,8 @@ while True:
     else:
         computer_guesses()
 
-    play_again = play_again()
+    again = play_again()
 
-    if play_again != 'Y':
+    if again != 'Y':
         print('Goodbye!')
         break
